@@ -1,33 +1,56 @@
 <head>  
   <meta charset="UTF-8">
+  <link href="./bootstrap.css" rel="stylesheet">
 </head>
 
-
 <body>
-  <section>
-    <a href="./test2.csv"><h1>测试文件下载</h1></a>
-    <div id="drop_zone" style="
-      border: 2px dashed #bbb;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
-      padding: 25px;
-      text-align: center;
-      font: 20pt bold 'Vollkorn';
-      color: #bbb;">拖拽文件到此</div>
-  </section>
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <a href="./test2.csv"><h1>测试文件下载</h1></a>
+      <div id="drop_zone" style="
+        border: 2px dashed #bbb;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 25px;
+        text-align: center;
+        font: 20pt bold 'Vollkorn';
+        color: #bbb;">拖拽文件到此</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <form class="form-inline" style="margin-top: 10px;">
+            <div class="form-group">
+                <input class="form-control" type="text" id="minx" value='0'>
+                <input class="form-control" type="text" id="maxx" value='Infinity'>
+                <!--output id="list"></output--> 
+            </div>
+          </form>  
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <nav style="margin-top: 10px;margin-bottom: 0px;">
+            <ul id="pg" class="pagination" style="margin-bottom: 0px;margin-top: 0px;">
+            </ul>
+          </nav>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div id="chartContainer" style="height: 600px; width: 100%; /*border:1px solid black; */"></div>
+    </div>
+  </div>
 
 
-  <section>
-    <!--input id="defaultSlider" type="range" min="0" max="5000" onchange="chx()"/-->
-    <input type="text" id="minx" value='0'>
-    <input type="text" id="maxx" value='Infinity'>
-    <output id="list"></output>
-
-    <div id="chartContainer" style="height: 600px; width: 100%; border:1px solid black; "></div>
-  </section>
-
-
+</div>
   <script type="text/javascript" src="./jquery.min.js"></script>
   <script type="text/javascript" src="./canvas.min.js"></script>
   <script type="text/javascript" src="./adapt.js"></script>
