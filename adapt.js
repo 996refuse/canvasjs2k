@@ -108,18 +108,13 @@ function onDrawTable(pageNum) {
             indexLabelWrap: true,
             indexLabelPlacement: "outside",
             indexLabelFormatter: function ( e ) {
-              /*
-              if(this.y[0] > val2pos(glbl.maximum) || this.y[1] < val2pos(glbl.minimum))
+              if(this.y[0] > patchh || this.y[1] < patchl) {
                 return "";
+              }
               if(e.index == 0)
                 return e.dataPoint.w4;  
               else
                  return "";
-              */
-              if(e.index == 0)
-                return e.dataPoint.w4;
-              else
-                return '';
             }
     });
   };
@@ -152,6 +147,8 @@ function onDrawTable(pageNum) {
 }
 
 var drawnow = function (mini, maxi) {
+  patchl = val2pos(mini)
+  patchh = val2pos(maxi);
 
   var chart = new CanvasJS.Chart("chartContainer",
   {
@@ -162,8 +159,8 @@ var drawnow = function (mini, maxi) {
     animationEnabled:true,
     exportEnabled: true,
     axisY: {
-    	minimum: val2pos(mini),
-    	maximum: val2pos(maxi),
+    	minimum: patchl,
+    	maximum: patchh,
 
       interval: 1,
       includeZero: false,
@@ -189,6 +186,8 @@ var drawnow = function (mini, maxi) {
   chart.render();
 }
 
+var patchl = 0;
+var patchh = Infinity;
 $(document).ready(function(){
 	$("input").change(function(){
 		i = parseFloat($( "#minx" ).val() );
